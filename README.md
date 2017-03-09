@@ -11,16 +11,16 @@ Just copy `zulip.php` and `zulip.json` to `$WHMCS_ROOT/includes/hooks` directory
 
 ## Configuration
 
-Edit file `zulip.json` and change `hook_url` to your zulip API url and add the username and password for a bot user to post the messages.
+Edit file `zulip-config.php` and change `hook_url` to your zulip API url and add the username and password for a bot user to post the messages.
 
-```json
-  {
-    "hook_url"  : "https://YOUR_ZULIP_DOMAIN/api/v1/messages",
-    "botuser"   : "YOUR_ZULIP_BOT_USER",
-    "api_key"   : "YOUR_ZULIP_BOT_APIKEY",
-    "stream"    : "support",
-    "adminuser" : "your_whmcs_admin_username"
-  }
+```php
+return [
+    "hook_url"  => "https://YOUR_ZULIP_DOMAIN/api/v1/messages",
+    "botuser"   => "YOUR_ZULIP_BOT_USER",
+    "api_key"   => "YOUR_ZULIP_BOT_APIKEY",
+    "stream"    => "support",
+    "adminuser" => "your_whmcs_admin_username"
+];
 ```
 Explanation
 
