@@ -7,7 +7,7 @@ WHMCS hook to Zulip. Send notification to zulip stream on creation of a new tick
 
 ## Installation
 
-Just copy `zulip.php` and `zulip.json` to `$WHMCS_ROOT/includes/hooks` directory.
+Just copy `zulip.php` and `zulip-config.json` to `$WHMCS_ROOT/includes/hooks` directory.
 
 ## Configuration
 
