@@ -6,8 +6,7 @@ if (!defined("WHMCS"))
     die("This file cannot be accessed directly");
 function get_client_name($clientid)
 {
-    $json               = file_get_contents(dirname(__FILE__) . "/zulip.json");
-    $config             = json_decode($json, true);
+    $config		= include("zulip-config.php");
     $adminuser          = $config['adminuser'];
     $client             = "";
     $command            = "getclientsdetails";
@@ -34,8 +33,7 @@ function get_client_name($clientid)
 }
 function zulip_post($text, $subject)
 {
-    $json    = file_get_contents(dirname(__FILE__) . "/zulip.json");
-    $config  = json_decode($json, true);
+    $config  = include("zulip-config.php");
     $url     = $config['hook_url'];
     $text    = htmlspecialchars_decode($text, ENT_QUOTES | ENT_NOQUOTES);
     $payload = array(
