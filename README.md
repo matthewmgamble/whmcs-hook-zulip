@@ -3,7 +3,7 @@
 This project is based open the whmcs-hook-slack project (https://github.com/ilhamrizqi/whmcs-hook-slack/) which was used as the inital framework for development.
 
 
-WHMCS hook to Zulip. Send notification to zulip stream on creation of a new ticket or upon ticket reploy.
+WHMCS hook to Zulip. Send notification to zulip stream on creation of a new ticket or upon ticket reply.
 
 ## Installation
 
