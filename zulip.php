@@ -42,6 +42,7 @@ function zulip_post($text, $subject)
         "subject" => urlencode($subject),
         "to" => urlencode($config["stream"])
     );
+    $fields_string = "";
     foreach ($payload as $key => $value) {
         $fields_string .= $key . '=' . $value . '&';
     }
@@ -50,11 +51,11 @@ function zulip_post($text, $subject)
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_USERPWD, $config['botuser'] . ":" . $config['api_key']);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_POST, count($fields));
+    curl_setopt($ch, CURLOPT_POST, count($payload));
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     if (!$result = curl_exec($ch)) {
-        logActivity("Error posting to zulip: " + curl_error($ch));
+        logActivity("Error posting to zulip: " . curl_error($ch));
     }
 }
 function hook_zulip_ticketopen($vars)
